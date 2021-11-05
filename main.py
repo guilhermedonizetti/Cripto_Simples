@@ -15,6 +15,7 @@ class Cripto_Simples:
             print("Opção inválida!\n")
             self.Menu()
     
+    #criptografar usando a Cifra de Cesar
     def criptografar_com_cesar(self):
         texto = input("Digite seu texto: ") #recebe o texto puro
         chave = input("Digite a chave: ") #recebe o valor da chave
@@ -25,6 +26,7 @@ class Cripto_Simples:
         else:
             print("\nResultado: {}\n".format(resul))
     
+    #decriptografar usando a Cifra de Cesar
     def decriptografar_com_cesar(self):
         texto = input("Digite seu texto: ") #recebe o texto puro
         chave = input("Digite a chave: ") #recebe o valor da chave

@@ -34,7 +34,7 @@ def decriptografar_cesar(texto, chave):
     else:
         nvtexto = ""
         for i in range(len(texto)):
-            # x recebe o indice da lista de caracteres onde esta o elemento atual + o tamanho da chave
+            #x recebe o indice da lista de caracteres onde esta o elemento atual + o tamanho da chave
             x = caracter.index(texto[i])-len(chave)
             if x>=0:
                 nvtexto = nvtexto + caracter[x]
