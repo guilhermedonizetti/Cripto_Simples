@@ -1,17 +1,24 @@
-import functions as fc
+import cifracesar as cc
+import permutacao as pm
 
 class Cripto_Simples:
 
     #Cria um menu de 3 opcoes para o usuario
     def menu(self):
-        op = int(input("1) Criptografar - Cesar\n2) Decriptografar - Cesar\n3) Sair\n"))
-        if op==1:
+        print("1) Criptografar - Cesar\n2) Decriptografar - Cesar")
+        print("3) Criptografar - Permuta\n4) Decriptografar - Permuta\n5) Sair")
+        op = int(input())
+        if op == 1:
             self.criptografar_com_cesar()
-        if op==2:
+        if op == 2:
             self.decriptografar_com_cesar()
-        if op==3:
+        if op == 3:
+            self.criptografar_com_permutacao()
+        if op == 4:
+            self.decriptografar_com_permutacao()
+        if op==5:
             exit()
-        if op<1 or op>3:
+        if op<1 or op>5:
             print("Opção inválida!\n")
             self.menu()
     
@@ -19,7 +26,7 @@ class Cripto_Simples:
     def criptografar_com_cesar(self):
         texto = input("Digite seu texto: ") #recebe o texto puro
         chave = input("Digite a chave: ") #recebe o valor da chave
-        resul = fc.criptografar_cesar(texto, chave)
+        resul = cc.criptografar_cesar(texto, chave)
         if resul == False:
             print("A chave deve ser menor que o texto.\n")
             self.criptografar_com_cesar()
@@ -31,12 +38,26 @@ class Cripto_Simples:
     def decriptografar_com_cesar(self):
         texto = input("Digite seu texto: ") #recebe o texto puro
         chave = input("Digite a chave: ") #recebe o valor da chave
-        resul = fc.decriptografar_cesar(texto, chave)
+        resul = cc.decriptografar_cesar(texto, chave)
         if resul == False:
             print("A chave deve ser menor que o texto.\n")
             self.criptografar_com_cesar()
         else:
             print("\nResultado: {}\n".format(resul))
+        self.menu()
+    
+    #criptografar usando a permuacao
+    def criptografar_com_permutacao(self):
+        texto = input("Texto: ")
+        resul = pm.criptografar_permuta(texto)
+        print("\nResultado: {}\n".format(resul))
+        self.menu()
+
+    #decriptografar usando a permuacao
+    def decriptografar_com_permutacao(self):
+        texto = input("Texto: ")
+        resul = pm.decriptografar_permuta(texto)
+        print("\nResultado: {}\n".format(resul))
         self.menu()
 
 c_simples = Cripto_Simples()
